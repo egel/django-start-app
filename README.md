@@ -24,6 +24,12 @@ docker build -t django-start-app -f Dockerfile-myapp .
 docker run --rm -d -p 8000:8000 django-start-app:latest # default localhost:8000
 ```
 
+or pull the image from dockerhub:
+
+```bash
+docker run --rm -d -p 8000:8000 egel/django-start-app:latest
+```
+
 ## License
 
 BSD 3-Clause License
