@@ -1,13 +1,18 @@
 FROM python:3.12.5
 
-RUN apt-get update -y
+# upgrade packages
+RUN apt-get update -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# upgrade pip
+RUN pip install --upgrade pip
 
 COPY . /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-
+EXPOSE 8000
 ENTRYPOINT ["/bin/sh"]
 CMD [ "/app/docker-entrypoint.sh" ]
 
